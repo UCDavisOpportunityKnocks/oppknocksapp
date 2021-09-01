@@ -4,14 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:oppknocksapp/screens/dashboard_screen/dashboard.dart';
 import 'package:oppknocksapp/screens/jobs_page/job_screen.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athleteprofile.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/settings.dart';
 import 'package:oppknocksapp/services/auth.dart';
 import 'package:oppknocksapp/shared/constants.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/settings_page.dart';
 import 'screens/dashboard_screen/dashboard.dart';
 import 'package:oppknocksapp/screens/Discount_Receipts/discountreceipt.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/businessprofile/businessprofile.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/consumerprofile/consumerprofile.dart';
 
 class Home extends StatefulWidget {
   @override
