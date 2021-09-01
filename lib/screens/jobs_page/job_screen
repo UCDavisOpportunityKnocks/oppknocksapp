@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:oppknocksapp/screens/home_screen/widgets/search_field.dart';
+import 'package:oppknocksapp/screens/jobs_page/widgets/jobs.dart';
+import 'package:oppknocksapp/shared/constants.dart';
+
+import '../../mq.dart';
+import 'widgets/jobs.dart';
+
+class JobScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    MQuery().init(context);
+    return SafeArea(
+      child: Container(
+        width: double.infinity,
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.only(top: 20, bottom: 10),
+          child: Column(
+            children: [
+              SearchField(),
+              SizedBox(height: 10),
+              _buildSectiontitle('Jobs', () {}),
+              Jobs(),
+              SizedBox(height: 10),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSectiontitle(String title, [Function? onTap]) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: kTitleStyle.copyWith(fontSize: 18),
+          ),
+          InkWell(
+            onTap: onTap as void Function()? ?? () {},
+            child: Text(
+              'See all',
+              style: TextStyle(color: appColor1),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
