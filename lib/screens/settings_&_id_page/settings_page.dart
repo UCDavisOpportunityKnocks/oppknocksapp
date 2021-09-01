@@ -26,7 +26,12 @@ class SettingsPageState extends State<SettingsPage> {
           children: [
             SettingsGroup(
               title: "GENERAL",
-              children: <Widget>[AccountPage(),buildlogout(), builddeleteAccount()],
+              children: <Widget>[
+              AccountPage(),
+              buildlogout(), 
+              //builddeleteAccount()
+              
+              ],
             ),
             const SizedBox(height: 32),
             
@@ -38,6 +43,8 @@ class SettingsPageState extends State<SettingsPage> {
               ],
             ),
             */
+
+
           ],
         )),
       );
