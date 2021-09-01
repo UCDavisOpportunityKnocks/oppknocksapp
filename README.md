@@ -1,7 +1,7 @@
 ### updating a repo
 git add .\
 git commit -m "comment"\
-git pull "github repo url" main\
+git pull "github repo url" master\
 git push --force "github repo url"
 
   
@@ -9,7 +9,7 @@ git push --force "github repo url"
 
 git add .\
 git fetch\
-git merge origin/main
+git merge origin/master
 
 
 # Overview
