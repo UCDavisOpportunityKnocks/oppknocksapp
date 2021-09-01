@@ -29,13 +29,15 @@ class SettingsPageState extends State<SettingsPage> {
               children: <Widget>[AccountPage(),buildlogout(), builddeleteAccount()],
             ),
             const SizedBox(height: 32),
-            SettingsGroup(
+            
+            /*SettingsGroup(
               title: "FEEDBACK",
               children: <Widget>[
                 buildreportbug(),
                 buildsendfeedback()
               ],
             ),
+            */
           ],
         )),
       );
