@@ -5,7 +5,6 @@ import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athletep
 import 'package:oppknocksapp/shared/constants.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/settings_page.dart';
 import 'screens/dashboard_screen/dashboard.dart';
-import 'package:oppknocksapp/screens/Discount_Receipts/discountreceipt.dart';
 
 class Home extends StatefulWidget {
   @override

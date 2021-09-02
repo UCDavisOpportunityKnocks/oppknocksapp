@@ -14,12 +14,16 @@ git merge origin/master
 
 
 # Overview
+Latest 2
 
-Updated Version
+<img src="./screenshots/version2/sign_in_page_latest.png" width="200">   <img src="./screenshots/version2/sign_in_keyboard_latest.png" width="200">   <img src="./screenshots/version2/home_screen_latest.png" width="200">   <img src="./screenshots/version2/product_page_latest.png" width="200">   <img src="./screenshots/version2/profile_page_latest.png" width="200">   <img src="./screenshots/version2/edit_profile_latest.png" width="200">   <img src="./screenshots/version2/app_name.png" width="200">   
 
-<img src="./screenshots/sign_in_1.png" width="200">   <img src="./screenshots/home_screen_2.png" width="200">   <img src="./screenshots/profile_page_1.png" width="200">
+
+Version 2
+
+<img src="./screenshots/version2/sign_in_1.png" width="200">   <img src="./screenshots/version2/home_screen_2.png" width="200">   <img src="./screenshots/version2/profile_page_1.png" width="200">
 
 
 Version 1 Home Page
 
-<img src="./screenshots/screenshot_6-8.png" width="200">
+<img src="./screenshots/version1/screenshot_6-8.png" width="200">
