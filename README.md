@@ -14,9 +14,9 @@ git merge origin/master
 
 
 # Overview
-Latest 2
+Latest Version
 
-<img src="./screenshots/version2/sign_in_page_latest.png" width="200">   <img src="./screenshots/version2/sign_in_keyboard_latest.png" width="200">   <img src="./screenshots/version2/home_screen_latest.png" width="200">   <img src="./screenshots/version2/product_page_latest.png" width="200">   <img src="./screenshots/version2/profile_page_latest.png" width="200">   <img src="./screenshots/version2/edit_profile_latest.png" width="200">   <img src="./screenshots/version2/app_name.png" width="200">   
+<img src="./screenshots/version3/sign_in_page_latest.png" width="200">   <img src="./screenshots/version3/sign_in_keyboard_latest.png" width="200">   <img src="./screenshots/version3/home_screen_latest.png" width="200">   <img src="./screenshots/version3/product_page_latest.png" width="200">   <img src="./screenshots/version3/profile_page_latest.png" width="200">   <img src="./screenshots/version3/edit_profile_latest.png" width="200">   <img src="./screenshots/version3/app_name.png" width="200">   
 
 
 Version 2
