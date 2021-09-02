@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-
 import 'package:oppknocksapp/screens/dashboard_screen/dashboard.dart';
-import 'package:oppknocksapp/screens/jobs_page/job_screen.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athleteprofile.dart';
-import 'package:oppknocksapp/services/auth.dart';
 import 'package:oppknocksapp/shared/constants.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/settings_page.dart';
 import 'screens/dashboard_screen/dashboard.dart';
 import 'package:oppknocksapp/screens/Discount_Receipts/discountreceipt.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/businessprofile/businessprofile.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -24,10 +20,8 @@ class HomeState extends State<Home> {
   int _selectedPage = 0;
   final _pageOptions = [
     Dashboard(),
-    //JobScreen(),
     Profile(), // put back Profile later
     DiscountRecipts(),
-    //ConsumerProfile(),
     SettingsPage(),
   ];
 
@@ -36,11 +30,11 @@ class HomeState extends State<Home> {
     return Scaffold(
       body: _pageOptions[_selectedPage],
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: Container(
-              width: 35, child: Image.asset("assets/images/OKlogo.png")),
-          centerTitle: true,
-          /*actions: <Widget>[
+        backgroundColor: Colors.white,
+        title: Container(
+            width: 35, child: Image.asset("assets/images/OKlogo.png")),
+        centerTitle: true,
+        /*actions: <Widget>[
             ElevatedButton.icon(
               onPressed: () async {
                 //await _auth.signOut();
@@ -75,7 +69,7 @@ class HomeState extends State<Home> {
             ),
           
           ]*/
-          ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: appColor1,
@@ -95,12 +89,6 @@ class HomeState extends State<Home> {
             ),
             label: 'Home',
           ),
-          /*BottomNavigationBarItem(
-            icon: Icon(
-              Icons.assignment,
-            ),
-            label: 'Jobs',
-          ),*/
           BottomNavigationBarItem(
             icon: Icon(
               Icons.account_circle,
@@ -113,22 +101,9 @@ class HomeState extends State<Home> {
             ),
             label: 'Receipts',
           ),
-
-          /*BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle,
-            ),
-            label: 'BusinessProfile',
-          ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.account_circle,
-            ),
-            label: 'ConsumerProfile',
-          ),*/
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings_applications_outlined,
+              Icons.settings,
             ),
             label: 'Settings',
           ),

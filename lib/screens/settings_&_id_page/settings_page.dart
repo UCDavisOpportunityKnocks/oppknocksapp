@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/edit_athlete_profile.dart';
-import 'dart:io';
-//import 'package:utils/utils.dart';
 import 'package:oppknocksapp/services/auth.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/settingswidget/icon_widget.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/accountpagesettings.dart';
 import 'package:oppknocksapp/shared/constants.dart';
-//import 'accountpagesettings.dart';
-import 'athlete_profile/appbar_widget.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -104,7 +99,7 @@ class SettingsPageState extends State<SettingsPage> {
                         child: Text("Cancel")),
                     ElevatedButton(
                         onPressed: () async {
-                          await _auth.signOut();
+                          Navigator.of(context).pop(await _auth.signOut());
                         },
                         child: Text("Log out")),
                   ]);

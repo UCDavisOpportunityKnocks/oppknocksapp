@@ -1,22 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
+
 import 'package:oppknocksapp/models/athleteprofileuser.dart';
 import 'package:oppknocksapp/models/okuser.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athleteprofilewidget2.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/settings_page.dart';
-import 'package:oppknocksapp/services/database.dart';
 import 'package:oppknocksapp/services/dbcollection.dart';
 import 'package:oppknocksapp/shared/constants.dart';
 import 'package:oppknocksapp/utils/user_preferences.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/edit_athlete_profile.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athlete_advertisement/athlete_advertisement.dart';
 import 'package:provider/provider.dart';
 import 'athlete_profile_widget.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/Tabbarview/overview.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/Tabbarview/linkedaccount.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/Tabbarview/Oppoint.dart';
 
 // Student athlete Profile Page
 class Profile extends StatefulWidget {

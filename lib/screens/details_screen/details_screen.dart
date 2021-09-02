@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:io/ansi.dart';
 import 'package:oppknocksapp/shared/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,11 +16,10 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: appColor1,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () => Navigator.of(context).pop(),
-          )),
+        leading: BackButton(),
+        backgroundColor: Colors.lightBlue,
+        elevation: 0,
+      ),
       body: Container(
         color: Colors.white,
         child: Column(

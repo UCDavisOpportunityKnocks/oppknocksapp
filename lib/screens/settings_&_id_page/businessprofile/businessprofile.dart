@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:oppknocksapp/models/business.dart';
+
 import 'package:oppknocksapp/models/businessprofileuser.dart';
-import 'package:oppknocksapp/models/images.dart';
 import 'package:oppknocksapp/utils/business_preferences.dart';
-import 'package:oppknocksapp/widgets/round_button.dart';
 import 'businessprofilewidget.dart';
-import 'ratingwidget.dart';
 import 'business_profile_edit.dart';
 
 
@@ -66,7 +63,7 @@ class BusinessProfileState extends State<BusinessProfile> {
             height: 24,
           ),
 
-          RatingsInfoWidget(),
+          ratingsInfoWidget(),
           //TabBarView(children: children)
           DefaultTabController(
               length: 2,
@@ -119,7 +116,7 @@ class BusinessProfileState extends State<BusinessProfile> {
         ),
       );
 
-  Widget RatingsInfoWidget() => Container(
+  Widget ratingsInfoWidget() => Container(
         //title: 'Reviews',
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -1,23 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:oppknocksapp/models/athleteprofileuser.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/appbar_widget.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/textfield_widget.dart';
-import 'package:oppknocksapp/services/dbcollection.dart';
 import 'package:oppknocksapp/utils/user_preferences.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
-import 'athlete_profile_widget.dart';
 import 'button_widget.dart';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'athleteprofilewidget2.dart';
 import 'package:oppknocksapp/models/okuser.dart';
-import 'package:oppknocksapp/services/auth.dart';
-
 
 class EditAthleteProfile extends StatefulWidget {
   @override

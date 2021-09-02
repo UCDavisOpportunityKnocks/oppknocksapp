@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:oppknocksapp/models/okuser.dart';
-import 'dbcollection.dart';
+
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 

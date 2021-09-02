@@ -3,7 +3,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'athleteprofile.dart';
 
 class AthleteProfileWidget2 extends StatelessWidget {
   final String imagePath;

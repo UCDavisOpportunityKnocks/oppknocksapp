@@ -1,9 +1,8 @@
-//import 'dart:html';
-//import 'dart:ui';
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'athleteprofile.dart';
+
 
 class AthleteProfileWidget extends StatelessWidget {
   final String imagePath;

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:oppknocksapp/models/athleteprofileuser.dart';
 import 'package:oppknocksapp/models/okuser.dart';
 import 'package:oppknocksapp/services/dbcollection.dart';
 import 'package:oppknocksapp/utils/user_preferences.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/edit_athlete_profile.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athlete_advertisement/athlete_advertisement.dart';
-import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athlete_profile_widget.dart';
 import 'package:provider/provider.dart';
 
 class DiscountRecipts extends StatefulWidget {

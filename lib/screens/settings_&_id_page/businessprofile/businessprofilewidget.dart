@@ -35,12 +35,12 @@ class BusinessProfileWidget extends StatelessWidget {
 // might have few changes later.
   Widget buildbusinessImage() {
     // from the preferences page
-    final B_image = businessimagePath.contains('https://')?NetworkImage(businessimagePath):FileImage(File(businessimagePath));
+    final bImage = businessimagePath.contains('https://')?NetworkImage(businessimagePath):FileImage(File(businessimagePath));
     return ClipOval(
       child: Material(
         color: Colors.transparent,
         child: Ink.image(
-          image: B_image as ImageProvider,
+          image: bImage as ImageProvider,
           fit: BoxFit.cover,
           width: 128,
           height: 128,

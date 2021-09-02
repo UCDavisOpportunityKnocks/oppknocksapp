@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:oppknocksapp/models/businessprofileuser.dart';
-import 'package:oppknocksapp/models/images.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/appbar_widget.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/button_widget.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/businessprofile/businessprofilewidget.dart';
