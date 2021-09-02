@@ -49,89 +49,22 @@ class ProfileState extends State<Profile> {
             const SizedBox(
               height: 24,
             ),
-    
-            
-                AthleteProfileWidget2(
+              Stack(
+                alignment:Alignment.center,
+                children:<Widget>[
+                
+                AthleteProfileWidget(
                   imagePath: user.imagePath,
                   // ASYNC, AWAIT AND SETSTATE ARE BIG FACTOR FOR UPDATING THE DATA.
                   onClicked: () async {
-                    await Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              EditAthleteProfile()), // might move this later.
-                    );
-                    setState(() {});
                   },
                 ),
-                buildName(user),
-                buildbio(user),
-              ],
-            )
-    /*
-            Row(
-              
-              children: [
-                buildbio(user),
               ],
             ),
-            */
-    /*
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center, 
-              children: [
-              ElevatedButton(
-                onPressed: () async {
-                  await Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            EditAthleteProfile()), // might move this later.
-                  );
-                  setState(() {});
-                },
-                child: Text("Edit Profile"),
-                style: ElevatedButton.styleFrom(
-                  padding:EdgeInsets.symmetric(horizontal: 60),
-                  primary: appColor1,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
-                ),
-              ),
-            ]),
-    */
-          /*
-        Divider(thickness: 3,color: Colors.black,),
-            DefaultTabController(
-                length: 3,
-                child: Column(
-                  children: [
-                    TabBar(
-                      tabs: [
-                        Tab(text: 'Overview'),
-                        Tab(text: 'Linked Accounts'),
-                        Tab(
-                          text: 'Oppurtunity Points',
-                        )
-                      ],
-                      labelColor: appColor1,
-                    ),
-                    Divider(thickness: 3,color: Colors.black,),
-                    Container(
-                      height: 300.0,
-                      child: TabBarView(
-                        children: [
-                          Overview(),
-                          MediaAccount(),
-                          Points()
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
-    */
-            //Advertisementtitle(user),
-            //buildAdvertisement(user),
-            //SeeAlloptions(context, "See All"),
-            
-         
+            buildName(user),
+            buildbio(user),
+          ]
+            ),
         );
       }
     );
@@ -143,7 +76,7 @@ class ProfileState extends State<Profile> {
     crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(user.name,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 5),
           Text(
             user.username,
@@ -168,8 +101,8 @@ class ProfileState extends State<Profile> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
-            
+            Text("Bio",
+            style: TextStyle(fontSize: 30 )),
             Text(
               user.bio,
               style: TextStyle(fontSize: 18, height: 1.4),
@@ -449,3 +382,79 @@ class Profile extends StatelessWidget {
 
 
 */
+
+
+//use this later if needed
+/*await Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              EditAthleteProfile()), // might move this later.
+                    );
+                    setState(() {});*/
+
+
+
+                    //for v3
+
+                    /*
+            Row(
+              children: [
+                buildbio(user),
+              ],
+            ),
+            */
+    /*
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center, 
+              children: [
+              ElevatedButton(
+                onPressed: () async {
+                  await Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            EditAthleteProfile()), // might move this later.
+                  );
+                  setState(() {});
+                },
+                child: Text("Edit Profile"),
+                style: ElevatedButton.styleFrom(
+                  padding:EdgeInsets.symmetric(horizontal: 60),
+                  primary: appColor1,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                ),
+              ),
+            ]),
+    */
+          /*
+        Divider(thickness: 3,color: Colors.black,),
+            DefaultTabController(
+                length: 3,
+                child: Column(
+                  children: [
+                    TabBar(
+                      tabs: [
+                        Tab(text: 'Overview'),
+                        Tab(text: 'Linked Accounts'),
+                        Tab(
+                          text: 'Oppurtunity Points',
+                        )
+                      ],
+                      labelColor: appColor1,
+                    ),
+                    Divider(thickness: 3,color: Colors.black,),
+                    Container(
+                      height: 300.0,
+                      child: TabBarView(
+                        children: [
+                          Overview(),
+                          MediaAccount(),
+                          Points()
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
+    */
+            //Advertisementtitle(user),
+            //buildAdvertisement(user),
+            //SeeAlloptions(context, "See All"),

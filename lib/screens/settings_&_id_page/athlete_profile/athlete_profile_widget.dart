@@ -19,8 +19,8 @@ class AthleteProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.primary;
-    return 
-       Stack(
+    return Center(
+       child:Stack(
         children: [
           buildImage(),
           /*
@@ -31,7 +31,7 @@ class AthleteProfileWidget extends StatelessWidget {
           )
           */
         ],
-      );
+      ),);
     
   }
 

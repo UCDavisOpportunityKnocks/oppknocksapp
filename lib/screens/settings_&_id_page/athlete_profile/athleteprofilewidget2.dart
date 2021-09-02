@@ -60,7 +60,7 @@ class AthleteProfileWidget2 extends StatelessWidget {
         child: buildCircle(
           color: color,
           all: 8, // pixels
-          child: Icon(isEdit ? Icons.add_a_photo : Icons.edit,
+          child: Icon(isEdit ? Icons.add_a_photo : null,
               color: Colors.white, size: 20),
         ),
       );
