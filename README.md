@@ -8,7 +8,6 @@ git push --force "github repo url"
 ### Merging the repo (when somebody updated the repo) to your local copy
 
 git add .\
-git commit -m "comment"\
 git fetch\
 git merge origin/master
 
