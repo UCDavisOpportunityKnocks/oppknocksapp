@@ -95,7 +95,11 @@ class ProfileState extends State<Profile> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Bio", style: TextStyle(fontSize: 30)),
+            Text("Bio",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                )),
             Text(
               user.bio,
               style: TextStyle(fontSize: 18, height: 1.4),
