@@ -136,13 +136,16 @@ class EditAthleteProfileState extends State<EditAthleteProfile> {
             onChanged: (username) => user = user.copy(username: username),
           ),
           const SizedBox(height: 20),
+          Text("Bio", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+          const SizedBox(height: 8),
           TextFormField(
             decoration: InputDecoration(
-              labelText: "Bio",
+              //labelText: "Bio",
               labelStyle: TextStyle(
               color: Colors.black87,
               fontSize: 18,
               fontWeight: FontWeight.bold,
+              
             ),
               helperText: "Enter Bio",
               focusedBorder: OutlineInputBorder(
@@ -152,7 +155,7 @@ class EditAthleteProfileState extends State<EditAthleteProfile> {
             ),
             controller: myController,
             maxLength: 100,
-            maxLines: 2,
+            maxLines: 3,
             maxLengthEnforcement: MaxLengthEnforcement.enforced,
             onChanged: (bio) => user = user.copy(bio: bio),
             toolbarOptions: ToolbarOptions(
