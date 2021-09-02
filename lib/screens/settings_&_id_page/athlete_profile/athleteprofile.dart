@@ -15,55 +15,60 @@ class Profile extends StatefulWidget {
 }
 
 class ProfileState extends State<Profile> {
-
-
-
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.getUser(); // in able to update the information
-    final users = Provider.of<OKUser?>(context); // This has the uid in users.uid
-    
+    final users =
+        Provider.of<OKUser?>(context); // This has the uid in users.uid
+
     return StreamBuilder<AthleteUser>(
-      stream: DatabaseCollectionService(uid: users!.uid).userData,
-      builder: (context, snapshot) {
-        
-        // update with new data from database
-        if (snapshot.hasData) {
-          UserPreferences.setUser(snapshot.data!);
-        } 
-        
-        return Scaffold(
-            body: ListView(
-          physics: BouncingScrollPhysics(),
-          children: [
-            const SizedBox(
-              height: 24,
-            ),
+        stream: DatabaseCollectionService(uid: users!.uid).userData,
+        builder: (context, snapshot) {
+          // update with new data from database
+          if (snapshot.hasData) {
+            UserPreferences.setUser(snapshot.data!);
+          }
+
+          return Scaffold(
+            body: ListView(physics: BouncingScrollPhysics(), children: [
+              const SizedBox(
+                height: 24,
+              ),
               Stack(
-                alignment:Alignment.center,
-                children:<Widget>[
-                
-                AthleteProfileWidget(
-                  imagePath: user.imagePath,
-                  // ASYNC, AWAIT AND SETSTATE ARE BIG FACTOR FOR UPDATING THE DATA.
-                  onClicked: () async {
-                  },
-                ),
-              ],
-            ),
-            buildName(user),
-            buildbio(user),
-          ]
-            ),
-        );
-      }
-    );
+                alignment: Alignment.center,
+                children: <Widget>[
+                  AthleteProfileWidget(
+                    imagePath: user.imagePath,
+                    // ASYNC, AWAIT AND SETSTATE ARE BIG FACTOR FOR UPDATING THE DATA.
+                    onClicked: () async {},
+                  ),
+                ],
+              ),
+              buildName(user),
+              buildbio(user),
+              SizedBox(height: 120),
+              Column(
+                //crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Center(
+                      child: Text(
+                    "Scan the QR code to sign up an athlete or business!",
+                    style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,
+                  )),
+                  Image.asset("assets/images/sign_up.png"),
+                ],
+              ),
+              SizedBox(height: 50),
+            ]),
+          );
+        });
   }
 
   Widget buildName(AthleteUser user) => Container(
-   padding: EdgeInsets.all(20.0),
-  child:Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(user.name,
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
@@ -74,15 +79,14 @@ class ProfileState extends State<Profile> {
           ),
           SizedBox(height: 5),
           Text(
-              user.sports,
-              style: TextStyle(color: Colors.black,fontSize: 20),
-            ),
-           SizedBox(height: 5),
-            Text(
-              user.college,
-              style: TextStyle(color: Colors.black,fontSize: 20),
-            ),
-         
+            user.sports,
+            style: TextStyle(color: Colors.black, fontSize: 20),
+          ),
+          SizedBox(height: 5),
+          Text(
+            user.college,
+            style: TextStyle(color: Colors.black, fontSize: 20),
+          ),
         ],
       ));
 
@@ -91,8 +95,7 @@ class ProfileState extends State<Profile> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Bio",
-            style: TextStyle(fontSize: 30 )),
+            Text("Bio", style: TextStyle(fontSize: 30)),
             Text(
               user.bio,
               style: TextStyle(fontSize: 18, height: 1.4),

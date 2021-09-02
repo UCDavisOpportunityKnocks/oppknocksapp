@@ -29,7 +29,7 @@ class _SignInState extends State<SignIn> {
           fit: BoxFit.fill,
         ),
         Scaffold(
-          backgroundColor: isKeyboard ? Colors.white : Colors.transparent ,
+          backgroundColor: isKeyboard ? Colors.white : Colors.transparent,
           resizeToAvoidBottomInset: false,
           body: Container(
             padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
@@ -37,7 +37,11 @@ class _SignInState extends State<SignIn> {
               key: _formKey,
               child: Column(
                 children: <Widget>[
-                  SizedBox(height: isKeyboard ?  40 : MediaQuery.of(context).size.height/2.3), // box to keep logo shown
+                  SizedBox(
+                      height: isKeyboard
+                          ? 100 //height position of email/password input
+                          : MediaQuery.of(context).size.height /
+                              2.3), // box to keep logo shown
                   TextFormField(
                       decoration:
                           textInputDecoration.copyWith(hintText: 'Email'),
@@ -60,42 +64,36 @@ class _SignInState extends State<SignIn> {
                   ),
                   SizedBox(height: 35.0),
                   Container(
-                    height: 50.0,
-                    child: RaisedButton(
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          dynamic result = await _auth
-                              .signInWithEmailAndPassword(email, password);
-                          if (result == null) {
-                            setState(() => error =
-                                'Could not sign in with those credentials');
-                          }
-                        }
-                      },
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(80.0)),
-                      padding: EdgeInsets.all(0.0),
-                      child: Ink(
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Color(0xff58ACCD), Color(0xff85C0C0)],
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
+                      height: 50.0,
+                      child: ElevatedButton(
+                          child: Container(
+                            constraints: BoxConstraints(
+                                maxWidth: 200.0, minHeight: 50.0),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Login",
+                              textAlign: TextAlign.center,
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
                             ),
-                            borderRadius: BorderRadius.circular(30.0)),
-                        child: Container(
-                          constraints:
-                              BoxConstraints(maxWidth: 200.0, minHeight: 50.0),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Login",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              dynamic result = await _auth
+                                  .signInWithEmailAndPassword(email, password);
+                              if (result == null) {
+                                setState(() => error =
+                                    'Could not sign in with those credentials');
+                              }
+                            }
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(appColor1),
+                              shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      ))))),
                   SizedBox(height: 8.0),
                   Text(
                     error,
@@ -131,17 +129,3 @@ class _SignInState extends State<SignIn> {
     );
   }
 }
-
-/*
-ElevatedButton(
-                  child: Text('Sign In'),
-                  onPressed: () async {
-                    dynamic result = await _auth.signInAnon();
-                    if (result == null) {
-                      print('error signing in');
-                    } else {
-                      print('signed in');
-                      print(result.uid);
-                    }
-                  }
-*/

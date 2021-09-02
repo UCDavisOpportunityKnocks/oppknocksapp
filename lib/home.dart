@@ -21,7 +21,7 @@ class HomeState extends State<Home> {
   final _pageOptions = [
     Dashboard(),
     Profile(), // put back Profile later
-    DiscountRecipts(),
+    //DiscountRecipts(),
     SettingsPage(),
   ];
 
@@ -95,12 +95,12 @@ class HomeState extends State<Home> {
             ),
             label: 'Profile',
           ),
-          BottomNavigationBarItem(
+          /*BottomNavigationBarItem(
             icon: Icon(
               Icons.receipt_sharp,
             ),
             label: 'Receipts',
-          ),
+          ),*/
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings,

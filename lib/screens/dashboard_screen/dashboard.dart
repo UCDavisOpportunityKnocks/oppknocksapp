@@ -13,19 +13,19 @@ class Dashboard extends StatelessWidget {
             height: 10,
           ),
           Text(
-            "All Deals",
+            "Latest Deals",
             style: TextStyle(fontSize: 20),
           ),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
                 stream:
-                    FirebaseFirestore.instance.collection("deals").snapshots(),
+                    FirebaseFirestore.instance.collection("deals")
+                    .orderBy("createdAt", descending: true)
+                    .snapshots(),
                 builder: (context, snapshot) {
                   if (!snapshot.hasData)
                     return Center(
-                      child: const Text("Loading...",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18)),
+                      child: CircularProgressIndicator(),
                     );
                   return ListView.builder(
                       scrollDirection: Axis.vertical,
@@ -33,7 +33,7 @@ class Dashboard extends StatelessWidget {
                       itemExtent: 90,
                       itemCount: snapshot.data!.docs.length,
                       itemBuilder: (context, index) {
-                        DocumentSnapshot deal = snapshot.data!.docs[index];
+                        DocumentSnapshot postModel = snapshot.data!.docs[index];
                         return Container(
                           decoration: new BoxDecoration(
                               border: new Border(
@@ -47,15 +47,15 @@ class Dashboard extends StatelessWidget {
                               child: Align(
                                 alignment: Alignment.center,
                                 child: ListTile(
-                                  leading: Image.network(deal['img']),
-                                  title: Text(deal['deal']),
-                                  subtitle: Text(deal['business']),
+                                  leading: Image.network(postModel['img']),
+                                  title: Text(postModel['deal']),
+                                  subtitle: Text(postModel['business']),
                                   onTap: () {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            DetailScreen(item: deal),
+                                            DetailScreen(item: postModel),
                                       ),
                                     );
                                   },

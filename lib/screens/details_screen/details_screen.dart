@@ -17,7 +17,7 @@ class _DetailScreenState extends State<DetailScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: appColor1,
         elevation: 0,
       ),
       body: Container(
@@ -42,7 +42,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 gradient: new LinearGradient(
                   colors: [appColor1, appColor2],
                   begin: const FractionalOffset(0.0, 0.0),
-                  end: const FractionalOffset(3.0, 0.0),
+                  end: const FractionalOffset(4.0, 2.0),
                   stops: [0.0, 1.0],
                   tileMode: TileMode.clamp,
                 ),
@@ -57,7 +57,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       width: 300,
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 30),
                 ],
               ),
             ),
