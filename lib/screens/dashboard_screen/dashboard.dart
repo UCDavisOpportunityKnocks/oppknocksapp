@@ -48,7 +48,8 @@ class Dashboard extends StatelessWidget {
                                 alignment: Alignment.center,
                                 child: ListTile(
                                   leading: Image.network(postModel['img']),
-                                  title: Text(postModel['deal']),
+                                  title: Text(postModel['deal'],
+                                  style: TextStyle(fontWeight: FontWeight.bold),),
                                   subtitle: Text(postModel['business']),
                                   onTap: () {
                                     Navigator.push(

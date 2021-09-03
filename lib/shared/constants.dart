@@ -10,5 +10,5 @@ const textInputDecoration = InputDecoration(
       borderSide: BorderSide(color: Colors.blue, width: 1.0)),
 );
 
-final Color appColor1 = HexColor('#44ADD0');
+final Color appColor1 = HexColor('#63ADCD');
 final Color appColor2 = HexColor('#C2E4F0');

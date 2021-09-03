@@ -4,6 +4,7 @@ import 'package:oppknocksapp/screens/dashboard_screen/dashboard.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athleteprofile.dart';
 import 'package:oppknocksapp/shared/constants.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/settings_page.dart';
+import 'package:oppknocksapp/shared/constants.dart';
 import 'screens/dashboard_screen/dashboard.dart';
 
 class Home extends StatefulWidget {
@@ -29,7 +30,7 @@ class HomeState extends State<Home> {
     return Scaffold(
       body: _pageOptions[_selectedPage],
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: appColor1,
         title: Container(
             width: 35, child: Image.asset("assets/images/OKlogo.png")),
         centerTitle: true,
