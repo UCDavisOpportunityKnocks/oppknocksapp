@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.9.2
   cupertino_icons: ^1.0.2
   firebase_storage: ^8.0.3
   cloud_firestore: ^2.5.1
@@ -38,9 +39,15 @@ dependencies:
   shared_preferences: ^2.0.6
   carousel_slider: ^4.0.0
   flutter_settings_screens: ^0.3.0-null-safety # added resolvable for null safety
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
