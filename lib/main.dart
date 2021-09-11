@@ -7,14 +7,15 @@ import 'package:oppknocksapp/wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:oppknocksapp/utils/user_preferences.dart';
-void main() async {
 
+void main() async {
   // this is for settings, again, i think we want this in firebase? this is it for now.
-  await Settings.init(cacheProvider:SharePreferenceCache());
+  await Settings.init(cacheProvider: SharePreferenceCache());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await UserPreferences.init(); // this is for the athlete profile update user data.
-  await BusinessUserPreferences.init(); // for busines profile 
+  await UserPreferences
+      .init(); // this is for the athlete profile update user data.
+  await BusinessUserPreferences.init(); // for busines profile
   runApp(OppKnocksApp());
 }
 
@@ -25,6 +26,8 @@ class OppKnocksApp extends StatelessWidget {
       initialData: null,
       value: AuthService().user,
       child: MaterialApp(
+        //when debugging, comment out the line below
+        debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),
     );
