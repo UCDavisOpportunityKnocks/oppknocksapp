@@ -88,12 +88,13 @@ class _SignInState extends State<SignIn> {
                             }
                           },
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(appColor1),
+                              backgroundColor:
+                                  MaterialStateProperty.all(appColor1),
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                      ))))),
+                                borderRadius: BorderRadius.circular(18.0),
+                              ))))),
                   SizedBox(height: 8.0),
                   Text(
                     error,
@@ -105,11 +106,13 @@ class _SignInState extends State<SignIn> {
                   InkWell(
                       child: Text('Apply Now',
                           style: TextStyle(
-                              color: Color(0xff85C0C0),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16)),
-                      onTap: () => launch(
-                          'https://forms.gle/eNBQaF8QWcWsCS1n7'))
+                            color: Color(0xff85C0C0),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            decoration: TextDecoration.underline,
+                          )),
+                      onTap: () =>
+                          launch('https://forms.gle/eNBQaF8QWcWsCS1n7'))
                   /*Link(
                       uri: Uri.parse(
                           'https://docs.google.com/forms/d/e/1FAIpQLSf_sZf90kzEudUAf0zwPYiNnZ666O8Y8Y-GjMWCWVy8CXWiNQ/viewform?usp=pp_url'),
