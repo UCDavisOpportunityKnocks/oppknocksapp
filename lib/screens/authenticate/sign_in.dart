@@ -109,7 +109,7 @@ class _SignInState extends State<SignIn> {
                               fontWeight: FontWeight.bold,
                               fontSize: 16)),
                       onTap: () => launch(
-                          'https://docs.google.com/forms/d/e/1FAIpQLSf_sZf90kzEudUAf0zwPYiNnZ666O8Y8Y-GjMWCWVy8CXWiNQ/viewform?usp=pp_url'))
+                          'https://forms.gle/eNBQaF8QWcWsCS1n7'))
                   /*Link(
                       uri: Uri.parse(
                           'https://docs.google.com/forms/d/e/1FAIpQLSf_sZf90kzEudUAf0zwPYiNnZ666O8Y8Y-GjMWCWVy8CXWiNQ/viewform?usp=pp_url'),
