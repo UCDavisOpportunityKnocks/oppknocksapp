@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:oppknocksapp/screens/authenticate/reset_password.dart';
+import 'package:flutter/widgets.dart';
 import 'package:oppknocksapp/services/auth.dart';
 import 'package:oppknocksapp/shared/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SignIn extends StatefulWidget {
+class ResetPassword extends StatefulWidget {
+  const ResetPassword({ Key? key }) : super(key: key);
+
   @override
-  _SignInState createState() => _SignInState();
+  _ResetPasswordState createState() => _ResetPasswordState();
 }
 
-class _SignInState extends State<SignIn> {
+class _ResetPasswordState extends State<ResetPassword> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
-
+  
   // text field state
   String email = '';
-  String password = '';
   String error = '';
-
   @override
   Widget build(BuildContext context) {
     final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
@@ -39,10 +39,12 @@ class _SignInState extends State<SignIn> {
               child: Column(
                 children: <Widget>[
                   SizedBox(
-                      height: isKeyboard
-                          ? 100 //height position of email/password input
-                          : MediaQuery.of(context).size.height /
-                              2.3), // box to keep logo shown
+                      height: isKeyboard ? 
+                          100 //height position of email/password input
+                          : MediaQuery.of(context).size.height / 2.3), // box to keep logo shown
+                  Text("Reset Password",
+                      style: TextStyle(color: Colors.black, fontSize: 32)),
+                  SizedBox(height: 20.0),  
                   TextFormField(
                       decoration:
                           textInputDecoration.copyWith(hintText: 'Email'),
@@ -52,18 +54,6 @@ class _SignInState extends State<SignIn> {
                         setState(() => email = val);
                       }),
                   SizedBox(height: 20.0), // box to keep room with password form
-                  TextFormField(
-                    decoration:
-                        textInputDecoration.copyWith(hintText: 'Password'),
-                    obscureText: true,
-                    validator: (val) => val!.length < 6
-                        ? 'Enter a password 6+ chars long'
-                        : null,
-                    onChanged: (val) {
-                      setState(() => password = val);
-                    },
-                  ),
-                  SizedBox(height: 35.0),
                   Container(
                       height: 50.0,
                       child: ElevatedButton(
@@ -72,7 +62,7 @@ class _SignInState extends State<SignIn> {
                                 maxWidth: 200.0, minHeight: 50.0),
                             alignment: Alignment.center,
                             child: Text(
-                              "Login",
+                              "Reset",
                               textAlign: TextAlign.center,
                               style:
                                   TextStyle(color: Colors.white, fontSize: 16),
@@ -81,11 +71,29 @@ class _SignInState extends State<SignIn> {
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               dynamic result = await _auth
-                                  .signInWithEmailAndPassword(email, password);
+                                  .resetPassword(email);
                               if (result == null) {
                                 setState(() => error =
-                                    'Could not sign in with those credentials');
-                              }
+                                    'Error: Could not send reset email. Please try again.');
+                              } else {
+                                Navigator.of(context).pop();
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) => AlertDialog(
+                                      content: Text('A password reset email has been sent',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(color: Colors.black, fontSize: 20)),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(context),
+                                          child: const Text('Ok'),
+                                          style: TextButton.styleFrom(textStyle: TextStyle(fontSize: 16))
+                                        ),
+                                      ],
+                                      actionsAlignment: MainAxisAlignment.center,
+                                    ),
+                                  );
+                              } 
                             }
                           },
                           style: ButtonStyle(
@@ -101,42 +109,7 @@ class _SignInState extends State<SignIn> {
                     error,
                     style: TextStyle(color: Colors.red, fontSize: 14.0),
                   ),
-                  Text("Don't have an account?",
-                      style: TextStyle(color: Color(0xff58ACCD), fontSize: 16)),
-                  SizedBox(height: 5.0),
-                  InkWell(
-                      child: Text('Apply Now',
-                          style: TextStyle(
-                            color: Color(0xff85C0C0),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            decoration: TextDecoration.underline,
-                          )),
-                      onTap: () =>
-                          launch('https://forms.gle/eNBQaF8QWcWsCS1n7')),
-                  SizedBox(height: 5.0),
-                  InkWell(
-                      child: Text('Forgot Password?',
-                          style: TextStyle(
-                            color: Color(0xff85C0C0),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            decoration: TextDecoration.underline,
-                          )),
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ResetPassword()));
-                      }),
 
-                  /*Link(
-                      uri: Uri.parse(
-                          'https://docs.google.com/forms/d/e/1FAIpQLSf_sZf90kzEudUAf0zwPYiNnZ666O8Y8Y-GjMWCWVy8CXWiNQ/viewform?usp=pp_url'),
-                      target: LinkTarget.defaultTarget,
-                      builder: (context, followLink) {
-                        return ElevatedButton(
-                          onPressed: followLink,
-                          child: Text('Submit Application'),
-                        );
-                      })*/
                 ],
               ),
             ),

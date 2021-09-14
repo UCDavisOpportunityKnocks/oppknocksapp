@@ -49,6 +49,17 @@ Future<String> getCurrentUID() async{
     }
   }
 
+
+  // Ask for reset email
+  Future resetPassword(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+      return true;
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
+  }
   // register with email & password
 
   // sign out
