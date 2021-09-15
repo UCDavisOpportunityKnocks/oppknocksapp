@@ -88,9 +88,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                                           onPressed: () => Navigator.pop(context),
                                           child: const Text('Ok'),
                                           style: TextButton.styleFrom(textStyle: TextStyle(fontSize: 16))
+                                          
                                         ),
                                       ],
-                                      actionsAlignment: MainAxisAlignment.center,
+                                      actionsAlignment: MainAxisAlignment.end,
                                     ),
                                   );
                               } 

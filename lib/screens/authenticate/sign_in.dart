@@ -101,6 +101,17 @@ class _SignInState extends State<SignIn> {
                     error,
                     style: TextStyle(color: Colors.red, fontSize: 14.0),
                   ),
+                  InkWell(
+                      child: Text('Forgot Password?',
+                          style: TextStyle(
+                            color: Color(0xff85C0C0),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            decoration: TextDecoration.underline,
+                          )),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ResetPassword()));
+                      }),
                   Text("Don't have an account?",
                       style: TextStyle(color: Color(0xff58ACCD), fontSize: 16)),
                   SizedBox(height: 5.0),
@@ -115,17 +126,7 @@ class _SignInState extends State<SignIn> {
                       onTap: () =>
                           launch('https://forms.gle/eNBQaF8QWcWsCS1n7')),
                   SizedBox(height: 5.0),
-                  InkWell(
-                      child: Text('Forgot Password?',
-                          style: TextStyle(
-                            color: Color(0xff85C0C0),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            decoration: TextDecoration.underline,
-                          )),
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ResetPassword()));
-                      }),
+                  
 
                   /*Link(
                       uri: Uri.parse(
