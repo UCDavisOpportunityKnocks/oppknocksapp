@@ -91,7 +91,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                           
                                         ),
                                       ],
-                                      actionsAlignment: MainAxisAlignment.center,
+                                      
                                     ),
                                   );
                               } 
