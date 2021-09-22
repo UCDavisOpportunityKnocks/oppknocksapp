@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:oppknocksapp/shared/constants.dart';
 
 class AthleteProfileWidget2 extends StatelessWidget {
   final String imagePath;
@@ -19,7 +20,7 @@ class AthleteProfileWidget2 extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.primary;
 
-    return Container(
+    return CircleAvatar(
      
      /* decoration: BoxDecoration(
        
@@ -29,7 +30,8 @@ class AthleteProfileWidget2 extends StatelessWidget {
     ),
     borderRadius: BorderRadius.circular(200),
   ),
-      */
+      */radius:70,
+      backgroundColor: appColor1,
       child: Center(
        child:Stack(
         children: [
@@ -37,8 +39,13 @@ class AthleteProfileWidget2 extends StatelessWidget {
           Positioned(
             bottom: 0,
             right: 4,
-            child: buildEditIcon(color),
-          )
+            child: Material( // fixed users will now to press the icon. 
+            child:InkWell(
+            onTap: onClicked,
+            child:buildEditIcon(color),
+          ),
+        ),
+      ),
         ],
       ),));
   }
@@ -69,11 +76,14 @@ class AthleteProfileWidget2 extends StatelessWidget {
         child: buildCircle(
           color: color,
           all: 8, // pixels
-          child: Icon(isEdit ? Icons.add_a_photo : null,
+          child: 
+          Icon(isEdit ? Icons.add_a_photo : null,
               color: Colors.white, size: 20),
         ),
       );
 
+      
+// declarations here
   Widget buildCircle({
     required Widget child,
     required double all,

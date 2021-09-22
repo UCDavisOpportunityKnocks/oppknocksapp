@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+import 'package:oppknocksapp/screens/authenticate/reset_password.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/edit_athlete_profile.dart';
 import 'package:oppknocksapp/services/auth.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/settingswidget/icon_widget.dart';
@@ -29,8 +30,10 @@ class SettingsPageState extends State<SettingsPage> {
                 //buildLanguage(),
                 //buildLocation(),
                 const SizedBox(height: 10),
+                  buildresetpassword(),
                 buildlogout(),
                 //builddeleteAccount()
+              
               ],
             ),
 
@@ -122,4 +125,19 @@ class SettingsPageState extends State<SettingsPage> {
         subtitle: '',
         leading: IconWidget(icon: Icons.thumb_up, color: appColor1),
       );
+
+
+      Widget buildresetpassword() => SimpleSettingsTile(
+        title: "Reset Password",
+        subtitle: '',
+        leading: IconWidget(icon: Icons.lock, color: appColor1),
+        onTap: () async {
+        await Navigator.of(context).push(
+          MaterialPageRoute(
+              builder: (context) =>
+                  ResetPassword()), // might move this later.
+        );
+        setState(() {});
+      });
+      
 }
