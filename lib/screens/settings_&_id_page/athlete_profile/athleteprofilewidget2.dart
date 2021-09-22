@@ -19,7 +19,18 @@ class AthleteProfileWidget2 extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.primary;
 
-    return Center(
+    return Container(
+     
+     /* decoration: BoxDecoration(
+       
+        border: Border.all(
+      color: Colors.black,
+      width: 8,
+    ),
+    borderRadius: BorderRadius.circular(200),
+  ),
+      */
+      child: Center(
        child:Stack(
         children: [
           buildImage(),
@@ -28,9 +39,8 @@ class AthleteProfileWidget2 extends StatelessWidget {
             right: 4,
             child: buildEditIcon(color),
           )
-          
         ],
-      ),);
+      ),));
   }
 
   Widget buildImage() {

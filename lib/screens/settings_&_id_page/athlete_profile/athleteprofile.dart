@@ -37,11 +37,17 @@ class ProfileState extends State<Profile> {
               Stack(
                 alignment: Alignment.center,
                 children: <Widget>[
-                  AthleteProfileWidget(
+                  Container (
+                    /*
+                    decoration:BoxDecoration(border: Border.all(
+	  width: 2,
+	),),
+  */
+                  child:AthleteProfileWidget(
                     imagePath: user.imagePath,
                     // ASYNC, AWAIT AND SETSTATE ARE BIG FACTOR FOR UPDATING THE DATA.
                     onClicked: () async {},
-                  ),
+                  )),
                 ],
               ),
               buildName(user),

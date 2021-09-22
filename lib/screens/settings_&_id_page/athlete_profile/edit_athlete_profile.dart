@@ -166,12 +166,13 @@ class EditAthleteProfileState extends State<EditAthleteProfile> {
             text: 'Save',
             onClicked: () async {
               // big problem is setup the uid from authentication.
+              //change it back here later 
               Map<String, dynamic> data = {
                 "image": user.imagePath,
                 "name": user.name,
                 "username": user.username,
-                "sports": user.sports,
-                "college": user.college,
+                "sport": user.sports,
+                "school": user.college,
                 "bio": user.bio
               };
               FirebaseFirestore.instance
