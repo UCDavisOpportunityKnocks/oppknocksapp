@@ -27,7 +27,7 @@ class OppKnocksApp extends StatelessWidget {
       value: AuthService().user,
       child: MaterialApp(
         //when debugging, comment out the line below
-        debugShowCheckedModeBanner: false,
+        //debugShowCheckedModeBanner: false,
         home: Wrapper(),
       ),
     );

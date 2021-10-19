@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:oppknocksapp/screens/dashboard_screen/dashboard.dart';
+import 'package:oppknocksapp/screens/search_screen/search_page.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/athlete_profile/athleteprofile.dart';
 import 'package:oppknocksapp/shared/constants.dart';
 import 'package:oppknocksapp/screens/settings_&_id_page/settings_page.dart';
@@ -20,21 +21,25 @@ class HomeState extends State<Home> {
   int _selectedPage = 0;
   final _pageOptions = [
     Dashboard(),
+    SearchPage(),
     Profile(), // put back Profile later
     //DiscountRecipts(),
     SettingsPage(),
   ];
+  bool onSearchPage = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pageOptions[_selectedPage],
-      appBar: AppBar(
-        backgroundColor: appColor1,
-        title: Container(
-            width: 35, child: Image.asset("assets/images/OKlogo.png")),
-        centerTitle: true,
-        /*actions: <Widget>[
+      appBar: !onSearchPage
+          ? AppBar(
+              backgroundColor: appColor1,
+              title: Container(
+                  width: 35, child: Image.asset("assets/images/OKlogo.png")),
+              centerTitle: true,
+              actions: [],
+              /*\\actions: <Widget>[
             ElevatedButton.icon(
               onPressed: () async {
                 //await _auth.signOut();
@@ -69,7 +74,8 @@ class HomeState extends State<Home> {
             ),
           
           ]*/
-      ),
+            )
+          : null,
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
         selectedItemColor: appColor1,
@@ -80,6 +86,11 @@ class HomeState extends State<Home> {
         onTap: (int index) {
           setState(() {
             _selectedPage = index;
+            if (index == 1) {
+              onSearchPage = true;
+            } else {
+              onSearchPage = false;
+            }
           });
         },
         items: [
@@ -89,6 +100,7 @@ class HomeState extends State<Home> {
             ),
             label: 'Home',
           ),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.account_circle,
