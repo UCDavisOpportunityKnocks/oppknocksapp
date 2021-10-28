@@ -26,6 +26,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  vxstate: any
+
 
   flutter_launcher_icons: ^0.9.2
   cupertino_icons: ^1.0.2
