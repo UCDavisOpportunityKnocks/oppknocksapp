@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+import 'package:oppknocksapp/screens/search_screen/search_bar_ui.dart';
 import 'package:provider/provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../shared/constants.dart';
@@ -48,11 +49,12 @@ class SearchPageState extends State<SearchPage> {
     var showResults = [];
     // Checks if the search bar isn't empty - have a search parameter
     if (_searchController.text != "") {
-      showResults = _allResults
-          .where((element) => element["business"]
-              .toLowerCase()
-              .contains(_searchController.text.toLowerCase()))
-          .toList();
+      showResults =
+          _allResults // reutrns list from the array that contains the same chars as the search query
+              .where((element) => element["business"]
+                  .toLowerCase()
+                  .contains(_searchController.text.toLowerCase()))
+              .toList();
     } else {
       // If the search bar is empty show all the deals
       showResults = List.from(_allResults);
@@ -89,21 +91,8 @@ class SearchPageState extends State<SearchPage> {
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.grey[100],
-          title: Container(
-            child: TextField(
-              controller: _searchController,
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.search),
-                hintText: "Search",
-                hintStyle: TextStyle(fontSize: 18),
-                alignLabelWithHint: true,
-              ),
-              style: TextStyle(fontSize: 18),
-            ),
-            margin: EdgeInsets.all(15),
-          ),
-        ),
+            backgroundColor: Colors.grey[100],
+            title: SearchBar(_searchController)),
         body: ListView.builder(
             scrollDirection: Axis.vertical,
             shrinkWrap: true,
