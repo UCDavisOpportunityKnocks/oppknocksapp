@@ -38,12 +38,32 @@ class SearchPageState extends State<SearchPage> {
     super.dispose();
   }
 
+  // Gets called whenever search bar text is changed
   void _onSearchChanged() {
-    print(_searchController.text);
+    searchResultList();
   }
 
+  // Filters the search bar based on whats inputed
+  searchResultList() {
+    var showResults = [];
+    // Checks if the search bar isn't empty - have a search parameter
+    if (_searchController.text != "") {
+      showResults = _allResults
+          .where((element) => element["business"]
+              .toLowerCase()
+              .contains(_searchController.text.toLowerCase()))
+          .toList();
+    } else {
+      // If the search bar is empty show all the deals
+      showResults = List.from(_allResults);
+    }
+    setState(() {
+      _resultsList = showResults;
+    });
+  }
+
+  // Pulls all the discounts from firebase
   getDiscounts() async {
-    final uid = await Provider.of(context).auth.getCurrentUID();
     var data = await FirebaseFirestore.instance
         .collection("deals")
         .orderBy("createdAt", descending: true)
@@ -51,7 +71,7 @@ class SearchPageState extends State<SearchPage> {
     setState(() {
       _allResults = data.docs;
     });
-
+    searchResultList();
     return data.docs;
   }
 
@@ -85,9 +105,42 @@ class SearchPageState extends State<SearchPage> {
           ),
         ),
         body: ListView.builder(
-            itemCount: _allResults.length,
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemExtent: 90,
+            itemCount: _resultsList.length,
             itemBuilder: (context, index) {
-              return Container();
+              DocumentSnapshot postModel = _resultsList[index];
+              return Container(
+                decoration: new BoxDecoration(
+                    border: new Border(
+                        bottom: new BorderSide(color: Colors.grey.shade400))),
+                child: Theme(
+                    data: ThemeData(
+                      splashColor: appColor1,
+                      highlightColor: Colors.grey.withOpacity(.5),
+                    ),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: ListTile(
+                        leading: Image.network(postModel['img']),
+                        title: Text(
+                          postModel['deal'],
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(postModel['business']),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  DetailScreen(item: postModel),
+                            ),
+                          );
+                        },
+                      ),
+                    )),
+              );
             }));
   }
 }
